@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { apiData } from "./data/apiData";
 import ApiCard from "./components/ApiCard";
 import Sidebar from "./components/Sidebar";
@@ -8,6 +8,20 @@ function App() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   // Theme State
   const [isDark, setIsDark] = useState(() => {
@@ -114,12 +128,18 @@ function App() {
                 />
               </div>
               <input
+                ref={searchInputRef}
                 type="text"
                 placeholder="Search APIs (e.g., 'array map', 'promise race', 'find')..."
-                className="block w-full pl-10 pr-3 py-2.5 sm:py-2 border border-gray-200 dark:border-slate-700 rounded-xl leading-5 bg-gray-50 dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all shadow-sm"
+                className="block w-full pl-10 pr-20 py-2.5 sm:py-2 border border-gray-200 dark:border-slate-700 rounded-xl leading-5 bg-gray-50 dark:bg-slate-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all shadow-sm"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <kbd className="hidden sm:inline-block px-2 py-0.5 text-xs font-mono font-medium text-gray-400 bg-gray-100 dark:bg-slate-700 dark:text-gray-500 rounded border border-gray-200 dark:border-slate-600">
+                  Ctrl K
+                </kbd>
+              </div>
             </div>
 
             <div className="flex items-center gap-2">

@@ -128,6 +128,31 @@ Below is a list of the APIs currently covered in this application.
 - `test()`: Tests for a match in a string.
 - `toString()`: Returns a string representing the regular expression.
 
+### 🧮 Operators & Expressions
+
+- `++`: Increment operator.
+- `--`: Decrement operator.
+- `...`: Spread syntax.
+- `==`: Equality.
+- `===`: Strict equality.
+- `!=`: Inequality.
+- `!==`: Strict inequality.
+- `&&`: Logical AND.
+- `||`: Logical OR.
+- `??`: Nullish coalescing.
+- `?:`: Conditional (ternary) operator.
+- `**`: Exponentiation.
+- `%`: Remainder.
+- `&`: Bitwise AND.
+- `~`: Bitwise NOT (Double NOT `!!` also covered).
+- `^`: Bitwise XOR.
+- `?.`: Optional chaining.
+- `void`: void operator.
+- `delete`: delete operator.
+- `in`: in operator.
+- `typeof`: Determine type of operand.
+- `instanceof`: Check prototype chain.
+
 ## 🛠️ Tech Stack & Setup
 
 This project uses **Tailwind CSS v4** for styling.
@@ -140,15 +165,3 @@ This project uses **Tailwind CSS v4** for styling.
     ```bash
     npm run dev
     ```
-
-## 🤝 Contributing
-
-We want to reach 100% coverage of MDN!
-
-1.  Open `src/data/apiData.ts`.
-2.  Add a new entry following the `ApiExample` interface.
-3.  Submit a Pull Request.
-
----
-
-_Pushing the boundaries of JavaScript education._
