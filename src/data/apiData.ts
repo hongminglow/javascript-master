@@ -4,7 +4,9 @@ export interface ApiExample {
   description: string;
   usage: string;
   url: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   input: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   output: any;
   category:
     | "Array"
@@ -936,5 +938,204 @@ export const apiData: ApiExample[] = [
     input: "[P(slow), P(fast)]",
     output: "two",
     category: "Promise",
+  },
+  {
+    id: "date-now",
+    name: "Date.now()",
+    description:
+      "Returns the numeric value corresponding to the current time—the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.",
+    usage:
+      'const start = Date.now();\nconsole.log("starting timer...");\nsetTimeout(() => {\n  const millis = Date.now() - start;\n  console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);\n}, 2000);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now",
+    input: "Date.now()",
+    output: 1737600000000,
+    category: "Date",
+  },
+  {
+    id: "date-parse",
+    name: "Date.parse()",
+    description:
+      "Parses a string representation of a date, and returns the number of milliseconds since 1970-01-01.",
+    usage:
+      'const unixTimeZero = Date.parse("01 Jan 1970 00:00:00 GMT");\nconst javaScriptRelease = Date.parse("04 Dec 1995 00:12:00 GMT");\nconsole.log(unixTimeZero);\nconsole.log(javaScriptRelease);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse",
+    input: '"04 Dec 1995 00:12:00 GMT"',
+    output: 818035920000,
+    category: "Date",
+  },
+  {
+    id: "date-utc",
+    name: "Date.UTC()",
+    description:
+      "Accepts parameters similar to the Date constructor, but treats them as UTC. Returns the number of milliseconds since 1970-01-01.",
+    usage:
+      "const utcDate = new Date(Date.UTC(96, 11, 1, 0, 0, 0));\nconsole.log(utcDate.toUTCString());",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC",
+    input: "Date.UTC(2023, 11, 1)",
+    output: 1701388800000,
+    category: "Date",
+  },
+  {
+    id: "date-getdate",
+    name: "getDate()",
+    description:
+      "Returns the day of the month for the specified date according to local time.",
+    usage:
+      'const birthday = new Date("August 19, 1975 23:15:30");\nconst date1 = birthday.getDate();\nconsole.log(date1);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate",
+    input: 'new Date("August 19, 1975").getDate()',
+    output: 19,
+    category: "Date",
+  },
+  {
+    id: "date-getday",
+    name: "getDay()",
+    description:
+      "Returns the day of the week for the specified date according to local time (0-6).",
+    usage:
+      'const birthday = new Date("August 19, 1975 23:15:30");\nconst day1 = birthday.getDay();\n// Sunday - Saturday : 0 - 6\nconsole.log(day1);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay",
+    input: 'new Date("August 19, 1975").getDay()',
+    output: 2,
+    category: "Date",
+  },
+  {
+    id: "date-getfullyear",
+    name: "getFullYear()",
+    description:
+      "Returns the year of the specified date according to local time.",
+    usage:
+      'const moonLanding = new Date("July 20, 69 00:20:18");\nconsole.log(moonLanding.getFullYear());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear",
+    input: 'new Date("July 20, 1969").getFullYear()',
+    output: 1969,
+    category: "Date",
+  },
+  {
+    id: "date-gethours",
+    name: "getHours()",
+    description:
+      "Returns the hour for the specified date, according to local time.",
+    usage:
+      'const birthday = new Date("March 13, 08 04:20");\nconsole.log(birthday.getHours());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getHours",
+    input: 'new Date("March 13, 2008 04:20").getHours()',
+    output: 4,
+    category: "Date",
+  },
+  {
+    id: "date-toisostring",
+    name: "toISOString()",
+    description:
+      "Returns a string in simplified extended ISO format (ISO 8601).",
+    usage:
+      'const event = new Date("05 October 2011 14:48 UTC");\nconsole.log(event.toISOString());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString",
+    input: 'new Date("05 October 2011 14:48 UTC")',
+    output: "2011-10-05T14:48:00.000Z",
+    category: "Date",
+  },
+  {
+    id: "date-tojson",
+    name: "toJSON()",
+    description: "Returns a string representation of the Date object.",
+    usage:
+      'const event = new Date("August 19, 1975 23:15:30");\nconst jsonDate = event.toJSON();\nconsole.log(jsonDate);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON",
+    input: 'new Date("1975-08-19T23:15:30")',
+    output: "1975-08-19T23:15:30.000Z",
+    category: "Date",
+  },
+  {
+    id: "date-tolocaledatestring",
+    name: "toLocaleDateString()",
+    description:
+      "Returns a string with a locality sensitive representation of the date portion of the date.",
+    usage:
+      'const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));\nconst options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };\nconsole.log(event.toLocaleDateString("de-DE", options));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString",
+    input: 'new Date("12/20/2012").toLocaleDateString("en-US")',
+    output: "12/20/2012",
+    category: "Date",
+  },
+  {
+    id: "date-tolocalestring",
+    name: "toLocaleString()",
+    description:
+      "Returns a string with a locality sensitive representation of this date.",
+    usage:
+      'const event = new Date("19 Aug 1975 23:15:30 UTC");\nconsole.log(event.toLocaleString("en-GB", { timeZone: "UTC" }));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString",
+    input: 'new Date("19 Aug 1975 UTC").toLocaleString("en-US")',
+    output: "8/19/1975, 7:00:00 PM",
+    category: "Date",
+  },
+  {
+    id: "date-tostring",
+    name: "toString()",
+    description: "Returns a string representing the specified Date object.",
+    usage:
+      'const event = new Date("August 19, 1975 23:15:30");\nconsole.log(event.toString());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString",
+    input: 'new Date("August 19, 1975").toString()',
+    output: "Tue Aug 19 1975 23:15:30 GMT...",
+    category: "Date",
+  },
+  {
+    id: "date-toutcstring",
+    name: "toUTCString()",
+    description:
+      "Returns a string representing the date using the UTC time zone.",
+    usage:
+      'const event = new Date("14 Jun 2017 00:00:00 PDT");\nconsole.log(event.toUTCString());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString",
+    input: 'new Date("14 Jun 2017 PDT")',
+    output: "Wed, 14 Jun 2017 07:00:00 GMT",
+    category: "Date",
+  },
+  {
+    id: "date-valueof",
+    name: "valueOf()",
+    description: "Returns the primitive value of a Date object.",
+    usage:
+      'const date1 = new Date("August 19, 1975 23:15:30");\nconsole.log(date1.valueOf());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf",
+    input: 'new Date("August 19, 1975").valueOf()',
+    output: 177722130000,
+    category: "Date",
+  },
+  {
+    id: "regexp-exec",
+    name: "RegExp.exec()",
+    description:
+      "Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.",
+    usage:
+      'const regex1 = RegExp("foo*", "g");\nconst str1 = "table football, foosball";\nlet array1;\nwhile ((array1 = regex1.exec(str1)) !== null) {\n  console.log(`Found ${array1[0]}. Next starts at ${regex1.lastIndex}.`);\n}',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec",
+    input: '/foo*/g.exec("table football")',
+    output: '["foo", index: 6, input: "table football"]',
+    category: "RegExp",
+  },
+  {
+    id: "regexp-test",
+    name: "RegExp.test()",
+    description: "Tests for a match in a string. Returns true or false.",
+    usage:
+      'const str = "table football";\nconst regex = new RegExp("foo*");\nconst globalRegex = new RegExp("foo*", "g");\nconsole.log(regex.test(str));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test",
+    input: '/foo*/.test("table football")',
+    output: true,
+    category: "RegExp",
+  },
+  {
+    id: "regexp-tostring",
+    name: "RegExp.toString()",
+    description: "Returns a string representing the regular expression.",
+    usage:
+      'const regex1 = new RegExp("a+b+c");\nconsole.log(regex1.toString());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/toString",
+    input: 'new RegExp("a+b+c").toString()',
+    output: "/a+b+c/",
+    category: "RegExp",
   },
 ];

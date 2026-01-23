@@ -3,7 +3,6 @@ import { apiData } from "./data/apiData";
 import ApiCard from "./components/ApiCard";
 import Sidebar from "./components/Sidebar";
 import { Search, Menu, Moon, Sun, X } from "lucide-react";
-import "./App.css";
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);

@@ -19,6 +19,10 @@ const ApiCard: React.FC<ApiCardProps> = ({ api }) => {
         return "bg-pink-100 text-pink-800 dark:bg-pink-500/20 dark:text-pink-300";
       case "Promise":
         return "bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300";
+      case "Date":
+        return "bg-teal-100 text-teal-800 dark:bg-teal-500/20 dark:text-teal-300";
+      case "RegExp":
+        return "bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-300";
       default:
         return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
     }

@@ -4,7 +4,7 @@ Welcome to **JS Master**, the most comprehensive interactive reference applicati
 
 ## 🚀 Features
 
-- **Massive API Coverage**: Currently indexed 65+ major APIs across Array, Object, String, Math, and Promise categories.
+- **Massive API Coverage**: Currently indexed 85+ major APIs across Array, Object, String, Math, Promise, Date, and RegExp categories.
 - **Smart Fuzzy Search**: Find what you need even if you don't know the exact name. Try searching for "find item", "loop", or "merge".
 - **Dark Mode**: Fully styled night theme for late-night coding sessions.
 - **Interactive Cards**: Visual input/output diffs for every single API.
@@ -104,6 +104,29 @@ Below is a list of the APIs currently covered in this application.
 - `allSettled()`: Resolves when all promises are settled (fulfilled or rejected).
 - `any()`: Resolves as soon as any promise fulfills.
 - `race()`: Resolves/Rejects as soon as any promise settles.
+
+### 📅 Date Methods
+
+- `now()`: Returns the number of milliseconds since January 1, 1970.
+- `parse()`: Parses a string representation of a date.
+- `UTC()`: Accepts parameters treats them as UTC.
+- `getDate()`: Returns the day of the month.
+- `getDay()`: Returns the day of the week.
+- `getFullYear()`: Returns the year.
+- `getHours()`: Returns the hour.
+- `toISOString()`: Returns a string in simplified extended ISO format.
+- `toJSON()`: Returns a string representation of the Date object.
+- `toLocaleDateString()`: Returns a string with a locality sensitive representation of the date.
+- `toLocaleString()`: Returns a string with a locality sensitive representation of this date.
+- `toString()`: Returns a string representing the specified Date object.
+- `toUTCString()`: Returns a string representing the date using the UTC time zone.
+- `valueOf()`: Returns the primitive value of a Date object.
+
+### 🧩 RegExp (Expression) Methods
+
+- `exec()`: Executes a search on a string using a regular expression pattern.
+- `test()`: Tests for a match in a string.
+- `toString()`: Returns a string representing the regular expression.
 
 ## 🛠️ Tech Stack & Setup
 
