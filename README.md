@@ -1,75 +1,131 @@
-# React + TypeScript + Vite
+# JS Master - The Ultimate JavaScript API Reference
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **JS Master**, the most comprehensive interactive reference application for JavaScript developers. This project aims to showcase **EVERY SINGLE** JavaScript MDN API with clear descriptions, real-world usage examples, and interactive input/output visualizations.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Massive API Coverage**: Currently indexed 65+ major APIs across Array, Object, String, Math, and Promise categories.
+- **Smart Fuzzy Search**: Find what you need even if you don't know the exact name. Try searching for "find item", "loop", or "merge".
+- **Dark Mode**: Fully styled night theme for late-night coding sessions.
+- **Interactive Cards**: Visual input/output diffs for every single API.
+- **Modern Tech Stack**: Built with React 19, TypeScript, **Tailwind CSS v4**, and Vite.
 
-## React Compiler
+## 📚 API Showcase & Documentation
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Below is a list of the APIs currently covered in this application.
 
-Note: This will impact Vite dev & build performances.
+### 🟦 Array Methods
 
-## Expanding the ESLint configuration
+- `at()`: Returns the item at a given index (supports negative integers).
+- `concat()`: Merges two or more arrays into a new one.
+- `copyWithin()`: Shallow copies part of an array to another location in the same array.
+- `entries()`: Returns a new Array Iterator object with key/value pairs.
+- `every()`: Tests whether **all** elements pass a test.
+- `fill()`: Fills all elements with a static value.
+- `filter()`: Creates a new array with elements that pass a test.
+- `find()`: Returns the **value** of the first element that passes a test.
+- `findIndex()`: Returns the **index** of the first element that passes a test.
+- `findLast()`: Returns the value of the last element that passes a test.
+- `findLastIndex()`: Returns the index of the last element that passes a test.
+- `flat()`: Flattens nested arrays up to a specified depth.
+- `flatMap()`: Maps each element using a mapping function, then flattens the result.
+- `forEach()`: Executes a provided function once for each array element.
+- `from()`: Creates a new Array instance from an iterable or array-like object.
+- `includes()`: Determines whether an array includes a certain value.
+- `indexOf()`: Returns the first index at which a given element can be found.
+- `isArray()`: Determines whether the passed value is an Array.
+- `join()`: Joins all elements of an array into a string.
+- `keys()`: Returns a new Array Iterator containing the keys for each index.
+- `lastIndexOf()`: Returns the last index at which a given element can be found.
+- `map()`: Creates a new array with the results of calling a function on every element.
+- `of()`: Creates a new Array instance from a variable number of arguments.
+- `pop()`: Removes the **last** element from an array and returns it.
+- `push()`: Adds one or more elements to the **end** of an array.
+- `reduce()`: Reduces the array to a single value (left-to-right).
+- `reduceRight()`: Reduces the array to a single value (right-to-left).
+- `reverse()`: Reverses an array **in place**.
+- `shift()`: Removes the **first** element from an array and returns it.
+- `slice()`: Returns a shallow copy of a portion of an array.
+- `some()`: Tests whether **at least one** element passes a test.
+- `sort()`: Sorts the elements of an array **in place**.
+- `splice()`: Adds/Removes elements from an array.
+- `unshift()`: Adds one or more elements to the **beginning** of an array.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🟪 Object Methods
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `assign()`: Copies enumerable own properties from source to target.
+- `create()`: Creates a new object with the specified prototype.
+- `entries()`: Returns an array of `[key, value]` pairs.
+- `freeze()`: Prevents modification of existing property attributes and values.
+- `fromEntries()`: Transforms a list of key-value pairs into an object.
+- `getOwnPropertyNames()`: Returns an array of all properties (enumerable or not).
+- `hasOwn()`: Returns true if the object has the specified property as its own.
+- `is()`: Determines whether two values are the same value (handling NaN etc.).
+- `keys()`: Returns an array of the object's property names.
+- `seal()`: Prevents new properties from being added.
+- `values()`: Returns an array of the object's own enumerable property values.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🟩 String Methods
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `at()`: Returns the character at the specified index.
+- `charAt()`: Returns the character at the specified index.
+- `concat()`: Concatenates string arguments to the calling string.
+- `endsWith()`: Determines whether a string ends with the characters of a specified string.
+- `includes()`: Determines whether one string may be found within another.
+- `indexOf()`: Returns the index of the first occurrence of a value.
+- `lastIndexOf()`: Returns the index of the last occurrence of a value.
+- `padEnd()`: Pads the string with another string until it reaches the given length (end).
+- `padStart()`: Pads the string with another string until it reaches the given length (start).
+- `repeat()`: Returns a new string with a specified number of copies.
+- `replace()`: Replaces occurrences of a pattern with a replacement.
+- `replaceAll()`: Replaces **all** occurrences of a pattern.
+- `slice()`: Extracts a section of a string.
+- `split()`: Splits a String object into an array of strings.
+- `startsWith()`: Determines whether a string begins with the characters of a specified string.
+- `substring()`: Returns the part of the string between the start and end indexes.
+- `toLowerCase()`: Returns the calling string value converted to lower case.
+- `toUpperCase()`: Returns the calling string value converted to upper case.
+- `trim()`: Removes whitespace from both ends of a string.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🟧 Math Methods
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `abs()`: Absolute value.
+- `ceil()`: Round up.
+- `floor()`: Round down.
+- `max()`: Largest of zero or more numbers.
+- `min()`: Smallest of zero or more numbers.
+- `pow()`: Base to the exponent power.
+- `random()`: Pseudo-random number between 0 and 1.
+- `round()`: Round to nearest integer.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🟨 Promise Methods
+
+- `all()`: Resolves when all promises resolve.
+- `allSettled()`: Resolves when all promises are settled (fulfilled or rejected).
+- `any()`: Resolves as soon as any promise fulfills.
+- `race()`: Resolves/Rejects as soon as any promise settles.
+
+## 🛠️ Tech Stack & Setup
+
+This project uses **Tailwind CSS v4** for styling.
+
+1.  **Install**:
+    ```bash
+    npm install
+    ```
+2.  **Run**:
+    ```bash
+    npm run dev
+    ```
+
+## 🤝 Contributing
+
+We want to reach 100% coverage of MDN!
+
+1.  Open `src/data/apiData.ts`.
+2.  Add a new entry following the `ApiExample` interface.
+3.  Submit a Pull Request.
+
+---
+
+_Pushing the boundaries of JavaScript education._
