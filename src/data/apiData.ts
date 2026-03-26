@@ -11,10 +11,13 @@ export interface ApiExample {
   category:
     | "Array"
     | "Object"
+    | "Map"
+    | "Set"
     | "String"
     | "Math"
     | "Promise"
     | "Number"
+    | "JSON"
     | "Date"
     | "RegExp"
     | "Function"
@@ -427,6 +430,54 @@ export const apiData: ApiExample[] = [
     output: [4, 5, 1, 2, 3],
     category: "Array",
   },
+  {
+    id: "array-tosorted",
+    name: "Array.prototype.toSorted()",
+    description:
+      "Returns a new array with the elements sorted, without mutating the original array.",
+    usage:
+      "const scores = [10, 3, 25, 7];\nconst sorted = scores.toSorted((a, b) => a - b);\nconsole.log(scores);\nconsole.log(sorted);",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted",
+    input: [10, 3, 25, 7],
+    output: [3, 7, 10, 25],
+    category: "Array",
+  },
+  {
+    id: "array-toreversed",
+    name: "Array.prototype.toReversed()",
+    description:
+      "Returns a new array with the elements in reverse order, without changing the original array.",
+    usage:
+      'const queue = ["first", "second", "third"];\nconst reversed = queue.toReversed();\nconsole.log(queue);\nconsole.log(reversed);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed",
+    input: ["first", "second", "third"],
+    output: ["third", "second", "first"],
+    category: "Array",
+  },
+  {
+    id: "array-tospliced",
+    name: "Array.prototype.toSpliced()",
+    description:
+      "Returns a new array with elements removed or replaced, without mutating the original array.",
+    usage:
+      'const months = ["Jan", "March", "April", "June"];\nconst updated = months.toSpliced(1, 0, "Feb");\nconsole.log(months);\nconsole.log(updated);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced",
+    input: ["Jan", "March", "April", "June"],
+    output: ["Jan", "Feb", "March", "April", "June"],
+    category: "Array",
+  },
+  {
+    id: "array-with",
+    name: "Array.prototype.with()",
+    description:
+      "Returns a new array with the element at the given index replaced, without mutating the original array.",
+    usage:
+      "const cart = [\"apple\", \"banana\", \"orange\"];\nconst updatedCart = cart.with(1, \"grape\");\nconsole.log(cart);\nconsole.log(updatedCart);",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with",
+    input: ["apple", "banana", "orange"],
+    output: ["apple", "grape", "orange"],
+    category: "Array",
+  },
 
   // --- OBJECT METHODS ---
   {
@@ -562,6 +613,130 @@ export const apiData: ApiExample[] = [
     input: { a: "somestring", b: 42, c: false },
     output: ["somestring", 42, false],
     category: "Object",
+  },
+  {
+    id: "object-groupby",
+    name: "Object.groupBy()",
+    description:
+      "Groups the elements of an iterable according to the string values returned by a callback function.",
+    usage:
+      "const numbers = [1, 2, 3, 4, 5, 6];\nconst grouped = Object.groupBy(numbers, (num) =>\n  num % 2 === 0 ? \"even\" : \"odd\",\n);\nconsole.log(grouped);",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy",
+    input: [1, 2, 3, 4, 5, 6],
+    output: { odd: [1, 3, 5], even: [2, 4, 6] },
+    category: "Object",
+  },
+
+  // --- MAP METHODS ---
+  {
+    id: "map-constructor",
+    name: "Map()",
+    description:
+      "Creates a key-value collection that remembers insertion order and allows keys of any type.",
+    usage:
+      'const userRoles = new Map([\n  ["alice", "admin"],\n  ["bob", "editor"],\n]);\nconsole.log(userRoles.get("alice"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    input: '[["alice", "admin"], ["bob", "editor"]]',
+    output: 'Map(2) {"alice" => "admin", "bob" => "editor"}',
+    category: "Map",
+  },
+  {
+    id: "map-set",
+    name: "Map.prototype.set()",
+    description:
+      "Adds or updates a key-value pair in a Map and returns the map itself.",
+    usage:
+      'const inventory = new Map();\ninventory.set("apple", 10);\ninventory.set("banana", 4);\nconsole.log(inventory);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set",
+    input: 'new Map().set("apple", 10)',
+    output: 'Map(1) {"apple" => 10}',
+    category: "Map",
+  },
+  {
+    id: "map-get",
+    name: "Map.prototype.get()",
+    description:
+      "Returns the value associated with a key, or undefined if the key is not in the map.",
+    usage:
+      'const settings = new Map([["theme", "dark"]]);\nconsole.log(settings.get("theme"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get",
+    input: 'new Map([["theme", "dark"]]).get("theme")',
+    output: "dark",
+    category: "Map",
+  },
+  {
+    id: "map-has",
+    name: "Map.prototype.has()",
+    description:
+      "Returns true if a Map contains the given key, otherwise false.",
+    usage:
+      'const cache = new Map([["users", []]]);\nconsole.log(cache.has("users"));\nconsole.log(cache.has("posts"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has",
+    input: 'new Map([["users", []]]).has("users")',
+    output: true,
+    category: "Map",
+  },
+  {
+    id: "map-delete",
+    name: "Map.prototype.delete()",
+    description:
+      "Removes the specified key from a Map and returns whether the key existed.",
+    usage:
+      'const draft = new Map([["temp", 123]]);\nconsole.log(draft.delete("temp"));\nconsole.log(draft.has("temp"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete",
+    input: 'new Map([["temp", 123]]).delete("temp")',
+    output: true,
+    category: "Map",
+  },
+
+  // --- SET METHODS ---
+  {
+    id: "set-constructor",
+    name: "Set()",
+    description:
+      "Creates a collection of unique values, often used for deduping and fast membership checks.",
+    usage:
+      "const uniqueIds = new Set([1, 2, 2, 3, 3, 4]);\nconsole.log(uniqueIds);",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    input: [1, 2, 2, 3, 3, 4],
+    output: "Set(4) {1, 2, 3, 4}",
+    category: "Set",
+  },
+  {
+    id: "set-add",
+    name: "Set.prototype.add()",
+    description:
+      "Adds a value to a Set if it is not already present and returns the set itself.",
+    usage:
+      'const tags = new Set(["js"]);\ntags.add("ts");\ntags.add("js");\nconsole.log(tags);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add",
+    input: 'new Set(["js"]).add("ts")',
+    output: 'Set(2) {"js", "ts"}',
+    category: "Set",
+  },
+  {
+    id: "set-has",
+    name: "Set.prototype.has()",
+    description:
+      "Returns true if a Set contains the given value, otherwise false.",
+    usage:
+      "const selected = new Set([101, 205, 309]);\nconsole.log(selected.has(205));\nconsole.log(selected.has(500));",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has",
+    input: "new Set([101, 205, 309]).has(205)",
+    output: true,
+    category: "Set",
+  },
+  {
+    id: "set-delete",
+    name: "Set.prototype.delete()",
+    description:
+      "Removes a value from a Set and returns whether the value existed.",
+    usage:
+      'const activeIds = new Set([1, 2, 3]);\nconsole.log(activeIds.delete(2));\nconsole.log(activeIds);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete",
+    input: "new Set([1, 2, 3]).delete(2)",
+    output: true,
+    category: "Set",
   },
 
   // --- STRING METHODS ---
@@ -799,6 +974,66 @@ export const apiData: ApiExample[] = [
     output: "Hello world!",
     category: "String",
   },
+  {
+    id: "string-match",
+    name: "String.prototype.match()",
+    description:
+      "Retrieves the result of matching a string against a regular expression.",
+    usage:
+      'const sentence = "Order #482 ships on 2026-03-26.";\nconst result = sentence.match(/\\d+/);\nconsole.log(result?.[0]);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match",
+    input: '"Order #482 ships".match(/\\d+/)',
+    output: '["482"]',
+    category: "String",
+  },
+  {
+    id: "string-matchall",
+    name: "String.prototype.matchAll()",
+    description:
+      "Returns an iterator of all results matching a regular expression, including capture groups.",
+    usage:
+      'const sentence = "x=10 y=20";\nconst matches = [...sentence.matchAll(/(\\w)=(\\d+)/g)];\nconsole.log(matches.map((match) => match[2]));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll",
+    input: '"x=10 y=20".matchAll(/(\\w)=(\\d+)/g)',
+    output: '["10", "20"]',
+    category: "String",
+  },
+  {
+    id: "string-trimstart",
+    name: "String.prototype.trimStart()",
+    description:
+      "Removes whitespace from the beginning of a string and returns a new string.",
+    usage:
+      'const line = "   padded left";\nconsole.log(line.trimStart());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart",
+    input: "   padded left",
+    output: "padded left",
+    category: "String",
+  },
+  {
+    id: "string-trimend",
+    name: "String.prototype.trimEnd()",
+    description:
+      "Removes whitespace from the end of a string and returns a new string.",
+    usage:
+      'const line = "padded right   ";\nconsole.log(line.trimEnd());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd",
+    input: "padded right   ",
+    output: "padded right",
+    category: "String",
+  },
+  {
+    id: "string-localecompare",
+    name: "String.prototype.localeCompare()",
+    description:
+      "Compares two strings in the current locale and returns a number useful for sorting.",
+    usage:
+      'const names = ["Zoe", "Ana", "Émile"];\nnames.sort((a, b) => a.localeCompare(b));\nconsole.log(names);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare",
+    input: '"b".localeCompare("a")',
+    output: 1,
+    category: "String",
+  },
 
   // --- MATH METHODS ---
   {
@@ -891,6 +1126,80 @@ export const apiData: ApiExample[] = [
     category: "Math",
   },
 
+  // --- NUMBER METHODS ---
+  {
+    id: "number-isnan",
+    name: "Number.isNaN()",
+    description:
+      "Returns true only if the provided value is the number NaN, without coercing other types.",
+    usage:
+      'console.log(Number.isNaN(NaN));\nconsole.log(Number.isNaN("NaN"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN",
+    input: "Number.isNaN(NaN)",
+    output: true,
+    category: "Number",
+  },
+  {
+    id: "number-isfinite",
+    name: "Number.isFinite()",
+    description:
+      "Returns true if the value is a finite number, and false for Infinity, -Infinity, and non-numbers.",
+    usage:
+      'console.log(Number.isFinite(10));\nconsole.log(Number.isFinite(Infinity));\nconsole.log(Number.isFinite("10"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite",
+    input: "Number.isFinite(10 / 3)",
+    output: true,
+    category: "Number",
+  },
+  {
+    id: "number-isinteger",
+    name: "Number.isInteger()",
+    description:
+      "Determines whether the passed value is an integer.",
+    usage:
+      "console.log(Number.isInteger(42));\nconsole.log(Number.isInteger(3.14));",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger",
+    input: "Number.isInteger(42)",
+    output: true,
+    category: "Number",
+  },
+  {
+    id: "number-parseint",
+    name: "Number.parseInt()",
+    description:
+      "Parses a string argument and returns an integer of the specified radix.",
+    usage:
+      'console.log(Number.parseInt("42px", 10));\nconsole.log(Number.parseInt("101", 2));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt",
+    input: '"42px"',
+    output: 42,
+    category: "Number",
+  },
+  {
+    id: "number-parsefloat",
+    name: "Number.parseFloat()",
+    description:
+      "Parses a string argument and returns a floating-point number.",
+    usage:
+      'console.log(Number.parseFloat("9.81m/s"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat",
+    input: '"9.81m/s"',
+    output: 9.81,
+    category: "Number",
+  },
+  {
+    id: "number-tofixed",
+    name: "Number.prototype.toFixed()",
+    description:
+      "Formats a number using fixed-point notation and returns the result as a string.",
+    usage:
+      "const price = 19.9;\nconsole.log(price.toFixed(2));",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed",
+    input: "19.9",
+    output: "19.90",
+    category: "Number",
+  },
+
   // --- PROMISE METHODS ---
   {
     id: "promise-all",
@@ -939,6 +1248,92 @@ export const apiData: ApiExample[] = [
     input: "[P(slow), P(fast)]",
     output: "two",
     category: "Promise",
+  },
+  {
+    id: "promise-resolve",
+    name: "Promise.resolve()",
+    description:
+      "Returns a Promise object that is resolved with the given value.",
+    usage:
+      'Promise.resolve("ready").then((value) => {\n  console.log(value);\n});',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve",
+    input: 'Promise.resolve("ready")',
+    output: 'Promise {"ready"}',
+    category: "Promise",
+  },
+  {
+    id: "promise-reject",
+    name: "Promise.reject()",
+    description:
+      "Returns a Promise object that is rejected with the given reason.",
+    usage:
+      'Promise.reject(new Error("Missing token")).catch((error) => {\n  console.error(error.message);\n});',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject",
+    input: 'Promise.reject("Missing token")',
+    output: 'Promise rejected with "Missing token"',
+    category: "Promise",
+  },
+  {
+    id: "promise-then",
+    name: "Promise.prototype.then()",
+    description:
+      "Schedules callbacks to run when a promise is fulfilled or rejected and returns a new promise.",
+    usage:
+      'fetchUser().then((user) => {\n  return user.name.toUpperCase();\n}).then((name) => {\n  console.log(name);\n});',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then",
+    input: 'Promise.resolve(5).then((value) => value * 2)',
+    output: 'Promise {10}',
+    category: "Promise",
+  },
+  {
+    id: "promise-catch",
+    name: "Promise.prototype.catch()",
+    description:
+      "Schedules a callback to run when a promise is rejected.",
+    usage:
+      'loadConfig()\n  .catch((error) => {\n    console.error("Failed to load config:", error.message);\n  });',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch",
+    input: 'Promise.reject("boom").catch((error) => error)',
+    output: 'Promise {"boom"}',
+    category: "Promise",
+  },
+  {
+    id: "promise-finally",
+    name: "Promise.prototype.finally()",
+    description:
+      "Schedules a callback to run when a promise settles, regardless of whether it fulfilled or rejected.",
+    usage:
+      'saveDraft()\n  .finally(() => {\n    setIsSaving(false);\n  });',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally",
+    input: 'Promise.resolve("done").finally(() => "cleanup")',
+    output: 'Promise {"done"}',
+    category: "Promise",
+  },
+
+  // --- JSON METHODS ---
+  {
+    id: "json-parse",
+    name: "JSON.parse()",
+    description:
+      "Parses a JSON string and constructs the JavaScript value or object described by it.",
+    usage:
+      'const raw = \'{"name":"Ada","active":true}\';\nconst user = JSON.parse(raw);\nconsole.log(user.name);',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse",
+    input: '{"name":"Ada","active":true}',
+    output: { name: "Ada", active: true },
+    category: "JSON",
+  },
+  {
+    id: "json-stringify",
+    name: "JSON.stringify()",
+    description:
+      "Converts a JavaScript value or object to a JSON string.",
+    usage:
+      'const payload = { name: "Ada", active: true };\nconsole.log(JSON.stringify(payload));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify",
+    input: { name: "Ada", active: true },
+    output: '{"name":"Ada","active":true}',
+    category: "JSON",
   },
   {
     id: "date-now",
@@ -1104,6 +1499,56 @@ export const apiData: ApiExample[] = [
     input: 'new Date("August 19, 1975").valueOf()',
     output: 177722130000,
     category: "Date",
+  },
+  {
+    id: "date-gettime",
+    name: "getTime()",
+    description:
+      "Returns the number of milliseconds for the specified date since the Unix epoch.",
+    usage:
+      'const createdAt = new Date("2026-03-26T09:30:00Z");\nconsole.log(createdAt.getTime());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime",
+    input: 'new Date("2026-03-26T09:30:00Z").getTime()',
+    output: 1774517400000,
+    category: "Date",
+  },
+
+  // --- FUNCTION METHODS ---
+  {
+    id: "function-call",
+    name: "Function.prototype.call()",
+    description:
+      "Calls a function with a given this value and arguments provided one by one.",
+    usage:
+      'function greet(greeting) {\n  return `${greeting}, ${this.name}`;\n}\nconst user = { name: "Ada" };\nconsole.log(greet.call(user, "Hello"));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call",
+    input: 'greet.call({ name: "Ada" }, "Hello")',
+    output: "Hello, Ada",
+    category: "Function",
+  },
+  {
+    id: "function-apply",
+    name: "Function.prototype.apply()",
+    description:
+      "Calls a function with a given this value and arguments provided as an array-like object.",
+    usage:
+      'function sum(a, b, c) {\n  return a + b + c;\n}\nconsole.log(sum.apply(null, [1, 2, 3]));',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply",
+    input: "sum.apply(null, [1, 2, 3])",
+    output: 6,
+    category: "Function",
+  },
+  {
+    id: "function-bind",
+    name: "Function.prototype.bind()",
+    description:
+      "Creates a new function with a fixed this value and, optionally, pre-filled arguments.",
+    usage:
+      'const counter = {\n  value: 2,\n  multiply(factor) {\n    return this.value * factor;\n  },\n};\nconst double = counter.multiply.bind(counter, 2);\nconsole.log(double());',
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind",
+    input: "counter.multiply.bind(counter, 2)",
+    output: "Function that returns 4",
+    category: "Function",
   },
   {
     id: "regexp-exec",

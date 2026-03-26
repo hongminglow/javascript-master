@@ -15,14 +15,24 @@ const ApiCard: React.FC<ApiCardProps> = ({ api }) => {
         return "bg-purple-100 text-purple-800 dark:bg-purple-500/20 dark:text-purple-300";
       case "String":
         return "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300";
+      case "Number":
+        return "bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-300";
       case "Math":
         return "bg-pink-100 text-pink-800 dark:bg-pink-500/20 dark:text-pink-300";
       case "Promise":
         return "bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300";
+      case "JSON":
+        return "bg-lime-100 text-lime-800 dark:bg-lime-500/20 dark:text-lime-300";
+      case "Map":
+        return "bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-300";
+      case "Set":
+        return "bg-sky-100 text-sky-800 dark:bg-sky-500/20 dark:text-sky-300";
       case "Date":
         return "bg-teal-100 text-teal-800 dark:bg-teal-500/20 dark:text-teal-300";
       case "RegExp":
         return "bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-300";
+      case "Function":
+        return "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-500/20 dark:text-fuchsia-300";
       case "Operator":
         return "bg-orange-100 text-orange-800 dark:bg-orange-500/20 dark:text-orange-300";
       default:

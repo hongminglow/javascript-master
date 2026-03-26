@@ -22,8 +22,16 @@ const Sidebar: React.FC<SidebarProps> = ({
         return <Type size={18} />;
       case "Number":
         return <Hash size={18} />;
+      case "JSON":
+        return <Binary size={18} />;
       case "Promise":
         return <Binary size={18} />;
+      case "Map":
+        return <Box size={18} />;
+      case "Set":
+        return <Layers size={18} />;
+      case "Function":
+        return <Sigma size={18} />;
       case "Math":
         return <Sigma size={18} />;
       default:

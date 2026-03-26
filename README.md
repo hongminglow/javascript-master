@@ -4,7 +4,7 @@ Welcome to **JS Master**, the most comprehensive interactive reference applicati
 
 ## 🚀 Features
 
-- **Massive API Coverage**: Currently indexed 85+ major APIs across Array, Object, String, Math, Promise, Date, and RegExp categories.
+- **Massive API Coverage**: Currently indexed 150+ practical APIs across Array, Object, Map, Set, String, Math, Number, Promise, JSON, Date, Function, and RegExp categories.
 - **Smart Fuzzy Search**: Find what you need even if you don't know the exact name. Try searching for "find item", "loop", or "merge".
 - **Dark Mode**: Fully styled night theme for late-night coding sessions.
 - **Interactive Cards**: Visual input/output diffs for every single API.
@@ -12,7 +12,7 @@ Welcome to **JS Master**, the most comprehensive interactive reference applicati
 
 ## 📚 API Showcase & Documentation
 
-Below is a list of the APIs currently covered in this application.
+Below is a categorized snapshot of the APIs currently covered in this application.
 
 ### 🟦 Array Methods
 
@@ -49,7 +49,11 @@ Below is a list of the APIs currently covered in this application.
 - `some()`: Tests whether **at least one** element passes a test.
 - `sort()`: Sorts the elements of an array **in place**.
 - `splice()`: Adds/Removes elements from an array.
+- `toReversed()`: Returns a reversed copy without mutating the original.
+- `toSorted()`: Returns a sorted copy without mutating the original.
+- `toSpliced()`: Returns an updated copy without mutating the original.
 - `unshift()`: Adds one or more elements to the **beginning** of an array.
+- `with()`: Returns a copied array with one item replaced.
 
 ### 🟪 Object Methods
 
@@ -62,8 +66,24 @@ Below is a list of the APIs currently covered in this application.
 - `hasOwn()`: Returns true if the object has the specified property as its own.
 - `is()`: Determines whether two values are the same value (handling NaN etc.).
 - `keys()`: Returns an array of the object's property names.
+- `groupBy()`: Groups iterable entries by a callback result.
 - `seal()`: Prevents new properties from being added.
 - `values()`: Returns an array of the object's own enumerable property values.
+
+### 🗺️ Map Methods
+
+- `Map()`: Creates a key-value collection with insertion order.
+- `set()`: Adds or updates a key-value pair.
+- `get()`: Reads the value for a key.
+- `has()`: Checks whether a key exists.
+- `delete()`: Removes a key from the map.
+
+### 🧺 Set Methods
+
+- `Set()`: Creates a collection of unique values.
+- `add()`: Adds a value to the set.
+- `has()`: Checks whether a value exists.
+- `delete()`: Removes a value from the set.
 
 ### 🟩 String Methods
 
@@ -83,9 +103,14 @@ Below is a list of the APIs currently covered in this application.
 - `split()`: Splits a String object into an array of strings.
 - `startsWith()`: Determines whether a string begins with the characters of a specified string.
 - `substring()`: Returns the part of the string between the start and end indexes.
+- `match()`: Matches a string against a regular expression.
+- `matchAll()`: Iterates over all regex matches.
+- `localeCompare()`: Compares strings for sorting.
 - `toLowerCase()`: Returns the calling string value converted to lower case.
 - `toUpperCase()`: Returns the calling string value converted to upper case.
 - `trim()`: Removes whitespace from both ends of a string.
+- `trimEnd()`: Removes whitespace from the end of a string.
+- `trimStart()`: Removes whitespace from the start of a string.
 
 ### 🟧 Math Methods
 
@@ -98,12 +123,31 @@ Below is a list of the APIs currently covered in this application.
 - `random()`: Pseudo-random number between 0 and 1.
 - `round()`: Round to nearest integer.
 
+### 🔢 Number Methods
+
+- `isNaN()`: Checks whether a value is actually `NaN`.
+- `isFinite()`: Checks whether a value is a finite number.
+- `isInteger()`: Checks whether a value is an integer.
+- `parseInt()`: Parses a string into an integer.
+- `parseFloat()`: Parses a string into a floating-point number.
+- `toFixed()`: Formats a number with fixed decimal places.
+
 ### 🟨 Promise Methods
 
 - `all()`: Resolves when all promises resolve.
 - `allSettled()`: Resolves when all promises are settled (fulfilled or rejected).
 - `any()`: Resolves as soon as any promise fulfills.
+- `catch()`: Handles rejected promises.
+- `finally()`: Runs cleanup logic after settle.
 - `race()`: Resolves/Rejects as soon as any promise settles.
+- `reject()`: Creates a rejected promise.
+- `resolve()`: Creates a resolved promise.
+- `then()`: Chains async success/error callbacks.
+
+### 🧾 JSON Methods
+
+- `parse()`: Converts JSON text into a JavaScript value.
+- `stringify()`: Converts a JavaScript value into JSON text.
 
 ### 📅 Date Methods
 
@@ -114,6 +158,7 @@ Below is a list of the APIs currently covered in this application.
 - `getDay()`: Returns the day of the week.
 - `getFullYear()`: Returns the year.
 - `getHours()`: Returns the hour.
+- `getTime()`: Returns the timestamp in milliseconds.
 - `toISOString()`: Returns a string in simplified extended ISO format.
 - `toJSON()`: Returns a string representation of the Date object.
 - `toLocaleDateString()`: Returns a string with a locality sensitive representation of the date.
@@ -127,6 +172,12 @@ Below is a list of the APIs currently covered in this application.
 - `exec()`: Executes a search on a string using a regular expression pattern.
 - `test()`: Tests for a match in a string.
 - `toString()`: Returns a string representing the regular expression.
+
+### 🧠 Function Methods
+
+- `call()`: Invokes a function with a chosen `this` and comma-separated args.
+- `apply()`: Invokes a function with a chosen `this` and array-like args.
+- `bind()`: Creates a new function with a fixed `this` and optional preset args.
 
 ### 🧮 Operators & Expressions
 
