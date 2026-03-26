@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import "./App.css";
 import { apiData } from "./data/apiData";
 import ApiCard from "./components/ApiCard";
 import Sidebar from "./components/Sidebar";

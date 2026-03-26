@@ -40,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <aside className="w-full h-full md:w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 md:h-screen sticky top-0 flex flex-col overflow-y-auto transition-colors duration-200">
+    <aside className="sidebar-scrollbar w-full h-full md:w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 md:h-screen sticky top-0 flex flex-col overflow-y-auto transition-colors duration-200">
       <div className="p-6 border-b border-gray-100 dark:border-slate-800">
         <h1 className="text-2xl font-black text-gray-900 dark:text-white tracking-tighter flex items-center gap-1">
           <span className="text-yellow-500">JS</span>{" "}

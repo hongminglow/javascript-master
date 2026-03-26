@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+.sidebar-scrollbar,
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.45) transparent;
+}
+
+.dark .sidebar-scrollbar,
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(148, 163, 184, 0.75),
+    rgba(100, 116, 139, 0.75)
+  );
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-clip: padding-box;
+}
+
+.dark .sidebar-scrollbar::-webkit-scrollbar-thumb,
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(148, 163, 184, 0.5),
+    rgba(71, 85, 105, 0.7)
+  );
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(99, 102, 241, 0.75),
+    rgba(59, 130, 246, 0.75)
+  );
+}
+
+.dark .sidebar-scrollbar::-webkit-scrollbar-thumb:hover,
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(129, 140, 248, 0.7),
+    rgba(56, 189, 248, 0.7)
+  );
+}
